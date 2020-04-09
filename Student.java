@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 class Student {
 	String index;
@@ -64,5 +65,39 @@ class Student {
 			broj_ocenki++;
 		}
 		return broj_ocenki * 6;
+	}
+}
+
+class Faculty {
+	List<Student> students;
+	String name;
+
+	public Faculty(List<Student> students, String name) {
+		this.students = students;
+		this.name = name;
+	}
+
+	public int getAverageGrade(List<Student> students) {
+		//TODO
+		double broj_studenti = 0, zbir = 0;
+		for (Student i: students) {
+			zbir += i.getAverage();
+			broj_studenti++;
+		}
+		return zbir/broj_studenti;
+	}
+
+	public double getAverageCredits(List<Student> students) {
+		//TODO
+		double broj_studenti = 0, zbir = 0;
+		for (Student i: students) {
+			zbir += i.ECTSCredits();
+			broj_studenti++;
+		}
+		return zbir/broj_studenti;
+	}
+
+	public void add(Student nov) {
+		students.add(nov);
 	}
 }
